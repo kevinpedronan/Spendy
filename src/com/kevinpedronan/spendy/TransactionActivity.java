@@ -3,6 +3,7 @@ package com.kevinpedronan.spendy;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -21,7 +22,10 @@ import com.kevinpedronan.spendy.VenmoLibrary.VenmoResponse;
 
 public class TransactionActivity extends Activity {
 	//Declare UI elements
+	private TextView nameTitleTextView;
+	private TextView itemsTitleTextView;
 	private LinearLayout itemContainer;
+	private TextView peopleTitleTextView;
 	private EditText amountEditText;
 	private EditText numSplitEditText;
 	private EditText venmoLoginEditText;
@@ -40,9 +44,20 @@ public class TransactionActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_transaction);
 		
+		Typeface roboto_medium = Typeface.createFromAsset(getAssets(), "Roboto/Roboto-Medium.ttf");
+		
+		nameTitleTextView = (TextView)findViewById(R.id.name_title);
+		nameTitleTextView.setTypeface(roboto_medium);
+		
+		itemsTitleTextView = (TextView)findViewById(R.id.items_title);
+		itemsTitleTextView.setTypeface(roboto_medium);
+		
 		itemContainer = (LinearLayout)findViewById(R.id.item_container);
 		EditText item = new EditText(this);
 		itemContainer.addView(item);
+		
+		peopleTitleTextView = (TextView)findViewById(R.id.people_title);
+		peopleTitleTextView.setTypeface(roboto_medium);
 	
 		resultTextView = (TextView)findViewById(R.id.result_text_view);
 		buildAmountEditText();
