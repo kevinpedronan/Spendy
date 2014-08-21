@@ -4,12 +4,41 @@
     android:gravity="center"
     android:orientation="vertical">
     
+    <TextView
+        android:id="@+id/name_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/name_title"/>
+    
+    <View
+	    android:layout_width="fill_parent"
+	    android:layout_height="1dp"
+	    android:background="@android:color/darker_gray"/>
+    
+    <EditText
+        android:id="@+id/transaction_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:imeOptions="actionGo"/>
+    
+    <TextView
+        android:id="@+id/items_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/items_title"/>
+    
     <LinearLayout
         android:id="@+id/item_container"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
-		android:orientation="vertical">
-    </LinearLayout>    
+		android:orientation="vertical"/>
+    
+    <TextView
+        android:id="@+id/people_title"
+        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:text="@string/people_title"/>
     
     <EditText
         android:id="@+id/amount_edit_text"
@@ -17,8 +46,7 @@
         android:layout_height="wrap_content"
         android:padding="24dp"
         android:hint="@string/amount_hint"
-        android:inputType="numberDecimal">
-    </EditText>
+        android:inputType="numberDecimal"/>
   	
     <EditText
         android:id="@+id/num_split_edit_text"
@@ -36,23 +64,20 @@
         android:padding="24dp" 
         android:hint="@string/venmo_login_options"
         android:inputType="text"
-        android:imeOptions="actionGo">        
-    </EditText>
+        android:imeOptions="actionGo"/>
     
 	<TextView
         android:id="@+id/result_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="24dp"
-        android:textSize="32sp">	    
-	</TextView>
+        android:textSize="32sp"/>
     
     <Button
         android:id="@+id/pay_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="24dp"
-    	android:text="@string/pay">   
-    </Button>
+    	android:text="@string/pay"/>
         
 </LinearLayout>

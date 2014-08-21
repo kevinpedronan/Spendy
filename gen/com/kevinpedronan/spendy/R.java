@@ -24,15 +24,19 @@ public final class R {
         public static final int ic_launcher=0x7f020000;
     }
     public static final class id {
-        public static final int action_settings=0x7f080008;
-        public static final int amount_edit_text=0x7f080002;
-        public static final int item_container=0x7f080001;
+        public static final int action_settings=0x7f08000c;
+        public static final int amount_edit_text=0x7f080006;
+        public static final int item_container=0x7f080004;
+        public static final int items_title=0x7f080003;
+        public static final int name_title=0x7f080001;
         public static final int new_transaction_button=0x7f080000;
-        public static final int num_split_edit_text=0x7f080003;
-        public static final int pay_button=0x7f080006;
-        public static final int result_text_view=0x7f080005;
-        public static final int venmo_login=0x7f080004;
-        public static final int venmo_wv=0x7f080007;
+        public static final int num_split_edit_text=0x7f080007;
+        public static final int pay_button=0x7f08000a;
+        public static final int people_title=0x7f080005;
+        public static final int result_text_view=0x7f080009;
+        public static final int transaction_name=0x7f080002;
+        public static final int venmo_login=0x7f080008;
+        public static final int venmo_wv=0x7f08000b;
     }
     public static final class layout {
         public static final int activity_spendy=0x7f030000;
@@ -49,9 +53,12 @@ public final class R {
         public static final int app_name=0x7f050000;
         public static final int invalid_amount=0x7f050006;
         public static final int invalid_num_split=0x7f050007;
+        public static final int items_title=0x7f05000e;
+        public static final int name_title=0x7f05000d;
         public static final int new_transaction=0x7f050001;
         public static final int num_split_hint=0x7f050004;
         public static final int pay=0x7f050005;
+        public static final int people_title=0x7f05000f;
         public static final int title_activity_transaction=0x7f05000b;
         public static final int title_activity_venmo_web_view=0x7f05000c;
         public static final int venmo_app_id=0x7f050009;
