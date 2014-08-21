@@ -1,6 +1,8 @@
 package com.kevinpedronan.spendy;
 
-import com.kevinpedronan.spendy.VenmoLibrary.VenmoResponse;
+import java.util.ArrayList;
+import java.util.List;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -13,9 +15,13 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 import android.widget.Toast;
+
+import com.kevinpedronan.spendy.VenmoLibrary.VenmoResponse;
+import com.kevinpedronan.spendy.Item;
 
 public class TransactionActivity extends Activity {
 	//Declare UI elements
@@ -24,6 +30,8 @@ public class TransactionActivity extends Activity {
 	private EditText venmoLoginEditText;
 	private TextView resultTextView;
 	private Button payButton;
+	private ListView itemList;
+	private ItemListAdapter itemListAdapter;
 	
 	//Declare Model elements
 	private double amount;
@@ -37,6 +45,7 @@ public class TransactionActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_transaction);
 	
+		buildItemList();
 		resultTextView = (TextView)findViewById(R.id.result_text_view);
 		buildAmountEditText();
 		buildNumSplitEditText();
@@ -44,6 +53,13 @@ public class TransactionActivity extends Activity {
 		buildPayButton();
 	}//onCreate
 
+	public void buildItemList() {
+		itemList = (ListView) findViewById(R.id.item_list);
+		itemList.setItemsCanFocus(true);
+		
+		
+	}//buildTransactionNameEditTextList
+	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
 		// Inflate the menu; this adds items to the action bar if it is present.

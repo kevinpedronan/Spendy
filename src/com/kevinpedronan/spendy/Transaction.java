@@ -1,14 +1,13 @@
 package com.kevinpedronan.spendy;
 
+import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
-import android.text.format.Formatter;
-
 public class Transaction {
-	double amount;
-	int numSplit;
-	String sender;
-	String recipient;
+	private double amount;
+	private int numSplit;
+	private String sender;
+	private String recipient;
 	
 	Transaction(double amount) {
 		this.amount = amount;
@@ -49,7 +48,8 @@ public class Transaction {
 	}//getNumSplit
 	//TODO: Format currency using java.text
 	public String getAmountString() {
-		return Double.toString(amount);
+		DecimalFormat df = new DecimalFormat("#,###,##0.00");
+		return df.format(amount);
 	}//getAmountString
 	
 	public String getNumSplitString() {
