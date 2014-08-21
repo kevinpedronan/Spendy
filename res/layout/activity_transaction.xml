@@ -4,12 +4,12 @@
     android:gravity="center"
     android:orientation="vertical">
     
-    <ListView
-        android:id="@+id/item_list"
+    <LinearLayout
+        android:id="@+id/item_container"
+        android:layout_height="wrap_content"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" 
-        android:layout_margin="10dp"
-        android:divider="@null" />
+		android:orientation="vertical">
+    </LinearLayout>    
     
     <EditText
         android:id="@+id/amount_edit_text"
@@ -17,7 +17,8 @@
         android:layout_height="wrap_content"
         android:padding="24dp"
         android:hint="@string/amount_hint"
-        android:inputType="numberDecimal" />
+        android:inputType="numberDecimal">
+    </EditText>
   	
     <EditText
         android:id="@+id/num_split_edit_text"
@@ -25,7 +26,8 @@
         android:layout_height="wrap_content"
         android:padding="24dp"
         android:hint="@string/num_split_hint"
-        android:inputType="number" />
+        android:inputType="number">        
+    </EditText>
     
     <EditText
         android:id="@+id/venmo_login"	
@@ -34,20 +36,23 @@
         android:padding="24dp" 
         android:hint="@string/venmo_login_options"
         android:inputType="text"
-        android:imeOptions="actionGo"/>
+        android:imeOptions="actionGo">        
+    </EditText>
     
 	<TextView
         android:id="@+id/result_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="24dp"
-        android:textSize="32sp" />
+        android:textSize="32sp">	    
+	</TextView>
     
     <Button
         android:id="@+id/pay_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:padding="24dp"
-    	android:text="@string/pay" />
+    	android:text="@string/pay">   
+    </Button>
         
 </LinearLayout>

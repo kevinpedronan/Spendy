@@ -1,8 +1,5 @@
 package com.kevinpedronan.spendy;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
@@ -15,23 +12,21 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ListView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 import android.widget.Toast;
 
 import com.kevinpedronan.spendy.VenmoLibrary.VenmoResponse;
-import com.kevinpedronan.spendy.Item;
 
 public class TransactionActivity extends Activity {
 	//Declare UI elements
+	private LinearLayout itemContainer;
 	private EditText amountEditText;
 	private EditText numSplitEditText;
 	private EditText venmoLoginEditText;
 	private TextView resultTextView;
 	private Button payButton;
-	private ListView itemList;
-	private ItemListAdapter itemListAdapter;
 	
 	//Declare Model elements
 	private double amount;
@@ -44,21 +39,17 @@ public class TransactionActivity extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_transaction);
+		
+		itemContainer = (LinearLayout)findViewById(R.id.item_container);
+		EditText item = new EditText(this);
+		itemContainer.addView(item);
 	
-		buildItemList();
 		resultTextView = (TextView)findViewById(R.id.result_text_view);
 		buildAmountEditText();
 		buildNumSplitEditText();
 		buildVenmoLoginEditText();
 		buildPayButton();
 	}//onCreate
-
-	public void buildItemList() {
-		itemList = (ListView) findViewById(R.id.item_list);
-		itemList.setItemsCanFocus(true);
-		
-		
-	}//buildTransactionNameEditTextList
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {

@@ -26,7 +26,7 @@ public final class R {
     public static final class id {
         public static final int action_settings=0x7f080008;
         public static final int amount_edit_text=0x7f080002;
-        public static final int item_list=0x7f080001;
+        public static final int item_container=0x7f080001;
         public static final int new_transaction_button=0x7f080000;
         public static final int num_split_edit_text=0x7f080003;
         public static final int pay_button=0x7f080006;
@@ -37,8 +37,7 @@ public final class R {
     public static final class layout {
         public static final int activity_spendy=0x7f030000;
         public static final int activity_transaction=0x7f030001;
-        public static final int item=0x7f030002;
-        public static final int venmo_webview=0x7f030003;
+        public static final int venmo_webview=0x7f030002;
     }
     public static final class menu {
         public static final int spendy=0x7f070000;
