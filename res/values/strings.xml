@@ -12,7 +12,7 @@
     <string name="venmo_login_options">Venmo username, phone number, or email</string>
     <string name="venmo_app_id">1765</string>
     <string name="venmo_app_secret">gppsQKBxvGpWB7vdyrBfF2GAH7AtWeXq</string>
-    <string name="title_activity_transaction">TransactionActivity</string>
+    <string name="title_activity_transaction">Spendy</string>
     <string name="title_activity_venmo_web_view">VenmoWebView</string>
     <string name="name_title">Name of Transaction</string>
     <string name="items_title">Items</string>

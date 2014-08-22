@@ -24,7 +24,8 @@
         </activity>
         <activity
             android:name="com.kevinpedronan.spendy.TransactionActivity"
-            android:label="@string/title_activity_transaction" >
+            android:label="@string/title_activity_transaction" 
+            android:theme="@style/SpendyTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />

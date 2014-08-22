@@ -39,7 +39,12 @@
 	        android:text="@string/items_title"
 	        android:paddingTop="10dp"/>
 	    
-	    <LinearLayout
+	    <View
+		    android:layout_width="fill_parent"
+		    android:layout_height="1dp"
+		    android:background="@android:color/darker_gray"/>
+	    
+	    <RelativeLayout
 	        android:id="@+id/item_container"
 	        android:layout_height="wrap_content"
 	        android:layout_width="match_parent"
@@ -52,6 +57,11 @@
 	        android:layout_width="match_parent"
 	        android:text="@string/people_title"
 	        android:paddingTop="10dp"/>
+	    
+	    <View
+		    android:layout_width="fill_parent"
+		    android:layout_height="1dp"
+		    android:background="@android:color/darker_gray"/>
 	    
 	    <EditText
 	        android:id="@+id/amount_edit_text"
@@ -67,8 +77,7 @@
 	        android:layout_height="wrap_content"
 	        android:padding="24dp"
 	        android:hint="@string/num_split_hint"
-	        android:inputType="number">        
-	    </EditText>
+	        android:inputType="number"/>
 	    
 	    <EditText
 	        android:id="@+id/venmo_login"	

@@ -18,6 +18,20 @@
         <!-- All customizations that are NOT specific to a particular API-level can go here. -->
     </style>
     
+    <style name="SpendyTheme" parent="@android:style/Theme.Holo.Light">
+        <item name="android:actionBarStyle">@style/SpendyActionBar</item>
+    </style>
+    
+    <style name="SpendyActionBar" parent="@android:style/Widget.Holo.Light.ActionBar">
+        <item name="android:background">#0099CC</item>
+        <item name="android:titleTextStyle">@style/SpendyActionBarText</item>
+        <item name="android:icon">@android:color/transparent</item>
+    </style>
+    
+    <style name="SpendyActionBarText" parent="@android:style/TextAppearance.Holo.Widget.ActionBar.Title">
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+    
     <!-- Title text -->
 	<style name="TitleText">
 	    <item name="android:textSize">18sp</item>

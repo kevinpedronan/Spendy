@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
@@ -13,7 +14,7 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 import android.widget.Toast;
@@ -24,7 +25,7 @@ public class TransactionActivity extends Activity {
 	//Declare UI elements
 	private TextView nameTitleTextView;
 	private TextView itemsTitleTextView;
-	private LinearLayout itemContainer;
+	private RelativeLayout itemContainer;
 	private TextView peopleTitleTextView;
 	private EditText amountEditText;
 	private EditText numSplitEditText;
@@ -52,8 +53,9 @@ public class TransactionActivity extends Activity {
 		itemsTitleTextView = (TextView)findViewById(R.id.items_title);
 		itemsTitleTextView.setTypeface(roboto_medium);
 		
-		itemContainer = (LinearLayout)findViewById(R.id.item_container);
+		itemContainer = (RelativeLayout)findViewById(R.id.item_container);
 		EditText item = new EditText(this);
+		item.setGravity(Gravity.CENTER);
 		itemContainer.addView(item);
 		
 		peopleTitleTextView = (TextView)findViewById(R.id.people_title);
