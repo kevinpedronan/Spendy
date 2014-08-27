@@ -44,7 +44,7 @@
 		    android:layout_height="1dp"
 		    android:background="@android:color/darker_gray"/>
 	    
-	    <RelativeLayout
+	    <LinearLayout
 	        android:id="@+id/item_container"
 	        android:layout_height="wrap_content"
 	        android:layout_width="match_parent"

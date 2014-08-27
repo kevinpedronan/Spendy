@@ -1,12 +1,13 @@
 package com.kevinpedronan.spendy;
 
+import java.util.ArrayList;
+
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
@@ -14,7 +15,7 @@ import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.RelativeLayout;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 import android.widget.Toast;
@@ -25,13 +26,14 @@ public class TransactionActivity extends Activity {
 	//Declare UI elements
 	private TextView nameTitleTextView;
 	private TextView itemsTitleTextView;
-	private RelativeLayout itemContainer;
+	private LinearLayout itemContainer;
 	private TextView peopleTitleTextView;
 	private EditText amountEditText;
 	private EditText numSplitEditText;
 	private EditText venmoLoginEditText;
 	private TextView resultTextView;
 	private Button payButton;
+	private ArrayList<ItemLinearLayout> itemAttrs;
 	
 	//Declare Model elements
 	private double amount;
@@ -39,6 +41,8 @@ public class TransactionActivity extends Activity {
 	private String recipient;
 	private Transaction transaction;
 	private boolean validAmount = false;
+	
+	int idStart = 0;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -52,11 +56,22 @@ public class TransactionActivity extends Activity {
 		
 		itemsTitleTextView = (TextView)findViewById(R.id.items_title);
 		itemsTitleTextView.setTypeface(roboto_medium);
+	
+		itemAttrs = new ArrayList<ItemLinearLayout>();
 		
-		itemContainer = (RelativeLayout)findViewById(R.id.item_container);
-		EditText item = new EditText(this);
-		item.setGravity(Gravity.CENTER);
-		itemContainer.addView(item);
+		itemContainer = (LinearLayout)findViewById(R.id.item_container);
+		ItemLinearLayout ill1 = new ItemLinearLayout(this);
+		itemAttrs.add(ill1);
+		itemContainer.addView(ill1);
+
+		ItemLinearLayout ill2 = new ItemLinearLayout(this);
+		itemAttrs.add(ill2);
+		itemContainer.addView(ill2);
+
+		ItemLinearLayout ill3 = new ItemLinearLayout(this);
+		itemAttrs.add(ill3);
+		itemContainer.addView(ill3);
+
 		
 		peopleTitleTextView = (TextView)findViewById(R.id.people_title);
 		peopleTitleTextView.setTypeface(roboto_medium);
@@ -226,7 +241,6 @@ public class TransactionActivity extends Activity {
 		recipient = venmoLoginEditText.getText().toString();
 	}//parseVenmoLogin
 	
-	//TODO:fix transaction amount always being 0.00
 	public void submitPayment() {
 		try { 
 			//TODO: Remove hard-coded String parameters
