@@ -63,15 +63,6 @@ public class TransactionActivity extends Activity {
 		ItemLinearLayout ill1 = new ItemLinearLayout(this);
 		itemAttrs.add(ill1);
 		itemContainer.addView(ill1);
-
-		ItemLinearLayout ill2 = new ItemLinearLayout(this);
-		itemAttrs.add(ill2);
-		itemContainer.addView(ill2);
-
-		ItemLinearLayout ill3 = new ItemLinearLayout(this);
-		itemAttrs.add(ill3);
-		itemContainer.addView(ill3);
-
 		
 		peopleTitleTextView = (TextView)findViewById(R.id.people_title);
 		peopleTitleTextView.setTypeface(roboto_medium);

@@ -1,9 +1,8 @@
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     android:gravity="center"
-    android:orientation="vertical">
+    android:orientation="vertical" >
     
     <LinearLayout
 	    android:layout_width="match_parent"
@@ -12,37 +11,63 @@
 	    android:orientation="vertical"
 	    android:padding="10dp">
 	    
-	    <TextView
-	        android:id="@+id/name_title"
-	        style="@style/TitleText"
+        <RelativeLayout
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
-	        android:text="@string/name_title"/>    
+	        android:paddingTop="20dp" >
+	        
+	            <TextView
+			        android:id="@+id/name_title"
+			        style="@style/TitleText"
+			        android:layout_width="match_parent"
+			        android:layout_height="wrap_content"
+			        android:text="@string/name_title"/>    
+		    
+			    <View
+			        android:layout_below="@+id/name_title"
+				    android:layout_width="fill_parent"
+				    android:layout_height="1dp"
+				    android:background="@android:color/darker_gray"/>
+        </RelativeLayout>
+	        
 	    
-	    <View
-		    android:layout_width="fill_parent"
-		    android:layout_height="1dp"
-		    android:background="@android:color/darker_gray"/>
 	    
 	    <EditText
 	        android:id="@+id/transaction_name"
 	        android:layout_width="match_parent"
 	        android:layout_height="wrap_content"
 	        android:inputType="text"
-	        android:imeOptions="actionGo"/>
-	    
-	    <TextView
-	        android:id="@+id/items_title"
-	        style="@style/TitleText"
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:text="@string/items_title"
+	        android:imeOptions="actionGo"
 	        android:paddingTop="10dp"/>
 	    
-	    <View
-		    android:layout_width="fill_parent"
-		    android:layout_height="1dp"
-		    android:background="@android:color/darker_gray"/>
+	    <RelativeLayout
+	        android:layout_width="match_parent"
+	        android:layout_height="wrap_content" 
+	        android:paddingTop="20dp">
+	        <TextView
+	            android:id="@+id/items_title"
+	            style="@style/TitleText"
+	            android:layout_width="match_parent"
+	            android:layout_height="wrap_content"
+	            android:layout_alignParentLeft="true"
+	            android:paddingTop="12dp"
+	            android:text="@string/items_title" />
+	        <Button
+	            android:id="@+id/add_item_button"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content"
+	            android:layout_alignBaseline="@id/add_item_button"
+	            android:layout_alignParentRight="true"
+	            android:layout_alignParentTop="true"
+	            android:background="@null"
+	            android:text="+" />
+	        <View
+	            android:layout_width="fill_parent"
+	            android:layout_height="1dp"
+	            android:layout_alignParentLeft="true"
+	            android:layout_below="@+id/items_title"
+	            android:background="@android:color/darker_gray" />
+	    </RelativeLayout>
 	    
 	    <LinearLayout
 	        android:id="@+id/item_container"
@@ -50,18 +75,24 @@
 	        android:layout_width="match_parent"
 			android:orientation="vertical"/>
 	    
-	    <TextView
-	        android:id="@+id/people_title"
-	        style="@style/TitleText"
-	        android:layout_height="wrap_content"
+	    <RelativeLayout
 	        android:layout_width="match_parent"
-	        android:text="@string/people_title"
-	        android:paddingTop="10dp"/>
-	    
-	    <View
-		    android:layout_width="fill_parent"
-		    android:layout_height="1dp"
-		    android:background="@android:color/darker_gray"/>
+	        android:layout_height="wrap_content"
+	        android:paddingTop="20dp" >
+		        <TextView
+			        android:id="@+id/people_title"
+			        style="@style/TitleText"
+			        android:layout_height="wrap_content"
+			        android:layout_width="match_parent"
+			        android:text="@string/people_title"
+			        android:paddingTop="10dp"/>
+		    
+			    <View
+			        android:layout_below="@+id/people_title"
+				    android:layout_width="fill_parent"
+				    android:layout_height="1dp"
+				    android:background="@android:color/darker_gray"/>
+	    </RelativeLayout>
 	    
 	    <EditText
 	        android:id="@+id/amount_edit_text"
