@@ -11,6 +11,7 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
@@ -23,17 +24,28 @@ import android.widget.Toast;
 import com.kevinpedronan.spendy.VenmoLibrary.VenmoResponse;
 
 public class TransactionActivity extends Activity {
-	//Declare UI elements
+	//Transaction Name
 	private TextView nameTitleTextView;
+	private EditText transactionNameET;
+	
+	//Items
 	private TextView itemsTitleTextView;
 	private LinearLayout itemContainer;
+	private ArrayList<ItemLinearLayout> items;
+	private Button addItem_B;
+	private int itemCounter = 0;
+	
+	//People
 	private TextView peopleTitleTextView;
+	
+	Typeface title_TF;
+	
 	private EditText amountEditText;
 	private EditText numSplitEditText;
 	private EditText venmoLoginEditText;
 	private TextView resultTextView;
 	private Button payButton;
-	private ArrayList<ItemLinearLayout> itemAttrs;
+
 	
 	//Declare Model elements
 	private double amount;
@@ -49,29 +61,19 @@ public class TransactionActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_transaction);
 		
-		Typeface roboto_medium = Typeface.createFromAsset(getAssets(), "Roboto/Roboto-Medium.ttf");
+		//Reference TypeFaces
+		refTF();
 		
-		nameTitleTextView = (TextView)findViewById(R.id.name_title);
-		nameTitleTextView.setTypeface(roboto_medium);
+		buildInfoSection();
+		buildItemSection();
+		buildPeopleSection();
 		
-		itemsTitleTextView = (TextView)findViewById(R.id.items_title);
-		itemsTitleTextView.setTypeface(roboto_medium);
-	
-		itemAttrs = new ArrayList<ItemLinearLayout>();
-		
-		itemContainer = (LinearLayout)findViewById(R.id.item_container);
-		ItemLinearLayout ill1 = new ItemLinearLayout(this);
-		itemAttrs.add(ill1);
-		itemContainer.addView(ill1);
-		
-		peopleTitleTextView = (TextView)findViewById(R.id.people_title);
-		peopleTitleTextView.setTypeface(roboto_medium);
-	
+		/*
 		resultTextView = (TextView)findViewById(R.id.result_text_view);
 		buildAmountEditText();
 		buildNumSplitEditText();
 		buildVenmoLoginEditText();
-		buildPayButton();
+		buildPayButton();*/
 	}//onCreate
 	
 	@Override
@@ -80,6 +82,53 @@ public class TransactionActivity extends Activity {
 		getMenuInflater().inflate(R.menu.transaction, menu);
 		return true;
 	}//onCreateOptionsMenu
+	
+	public void refTF() {
+		title_TF = Typeface.createFromAsset(getAssets(), "Roboto/Roboto-Medium.ttf");
+	}//refTF
+	
+	public void buildInfoSection() {
+		nameTitleTextView = (TextView)findViewById(R.id.name_title);
+		nameTitleTextView.setTypeface(title_TF);
+		
+		transactionNameET = (EditText)findViewById(R.id.transaction_name_ET);
+	}//buildInfoSection
+	
+	public void buildItemSection() {
+		//UI container for section
+		itemContainer = (LinearLayout)findViewById(R.id.item_container);
+				
+		//Title
+		itemsTitleTextView = (TextView)findViewById(R.id.items_title);
+		itemsTitleTextView.setTypeface(title_TF);
+	
+		//Add item Button
+		addItem_B = (Button)findViewById(R.id.add_item_button);
+		addItem_B.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				addItem();
+			}
+		});
+		
+		//ArrayList to hold Items
+		items = new ArrayList<ItemLinearLayout>();
+		
+		addItem();
+	}//buildItemSection
+	
+	public void addItem() {
+		ItemLinearLayout ill = new ItemLinearLayout(this);
+		ill.setId(itemCounter);
+		items.add(ill);
+		itemContainer.addView(ill);
+		itemCounter++;
+	}//addItem
+	
+	public void buildPeopleSection() {
+		peopleTitleTextView = (TextView)findViewById(R.id.people_title);
+		peopleTitleTextView.setTypeface(title_TF);
+	}//buildPeopleSection
 	
 	public void buildAmountEditText() {
 		//Find XML element

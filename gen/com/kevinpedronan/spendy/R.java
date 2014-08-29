@@ -36,7 +36,7 @@ public final class R {
         public static final int pay_button=0x7f08000b;
         public static final int people_title=0x7f080006;
         public static final int result_text_view=0x7f08000a;
-        public static final int transaction_name=0x7f080002;
+        public static final int transaction_name_ET=0x7f080002;
         public static final int venmo_login=0x7f080009;
         public static final int venmo_wv=0x7f08000c;
     }
