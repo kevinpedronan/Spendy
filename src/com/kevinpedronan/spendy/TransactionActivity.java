@@ -90,7 +90,7 @@ public class TransactionActivity extends Activity {
 	}//refTF
 	
 	public void buildInfoSection() {
-		nameTitle_TV = (TextView)findViewById(R.id.name_title);
+		nameTitle_TV = (TextView)findViewById(R.id.name_title_TV);
 		nameTitle_TV.setTypeface(title_TF);
 		
 		transactionName_ET = (EditText)findViewById(R.id.transaction_name_ET);
@@ -98,7 +98,7 @@ public class TransactionActivity extends Activity {
 	
 	public void buildItemSection() {
 		//UI container for section
-		itemContainer_LL = (LinearLayout)findViewById(R.id.item_container);
+		itemContainer_LL = (LinearLayout)findViewById(R.id.item_container_LL);
 		LinearLayout.LayoutParams linearParams = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
 		itemContainer_LL.setLayoutParams(linearParams);
 				
@@ -106,11 +106,11 @@ public class TransactionActivity extends Activity {
 		items_AL = new ArrayList<ItemRelativeLayout>();
 		
 		//Title
-		itemsTitle_TV = (TextView)findViewById(R.id.items_title);
+		itemsTitle_TV = (TextView)findViewById(R.id.items_title_TV);
 		itemsTitle_TV.setTypeface(title_TF);
 		
 		//Add item Button
-		addItem_B = (Button)findViewById(R.id.add_item_button);
+		addItem_B = (Button)findViewById(R.id.add_item_B);
 		addItem_B.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -131,7 +131,7 @@ public class TransactionActivity extends Activity {
 	}//addItem
 	
 	public void buildPeopleSection() {
-		peopleTitleTextView = (TextView)findViewById(R.id.people_title);
+		peopleTitleTextView = (TextView)findViewById(R.id.people_title_TV);
 		peopleTitleTextView.setTypeface(title_TF);
 	}//buildPeopleSection
 	

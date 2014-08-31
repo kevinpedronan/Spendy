@@ -17,14 +17,14 @@
 	        android:paddingTop="20dp" >
 	        
 	            <TextView
-			        android:id="@+id/name_title"
+			        android:id="@+id/name_title_TV"
 			        style="@style/TitleText"
 			        android:layout_width="match_parent"
 			        android:layout_height="wrap_content"
 			        android:text="@string/name_title"/>    
 		    
 			    <View
-			        android:layout_below="@+id/name_title"
+			        android:layout_below="@+id/name_title_TV"
 				    android:layout_width="fill_parent"
 				    android:layout_height="1dp"
 				    android:background="@android:color/darker_gray"/>
@@ -43,7 +43,7 @@
 	        android:layout_height="wrap_content" 
 	        android:paddingTop="20dp">
 	        <TextView
-	            android:id="@+id/items_title"
+	            android:id="@+id/items_title_TV"
 	            style="@style/TitleText"
 	            android:layout_width="match_parent"
 	            android:layout_height="wrap_content"
@@ -51,10 +51,10 @@
 	            android:paddingTop="12dp"
 	            android:text="@string/items_title" />
 	        <Button
-	            android:id="@+id/add_item_button"
+	            android:id="@+id/add_item_B"
 	            android:layout_width="wrap_content"
 	            android:layout_height="wrap_content"
-	            android:layout_alignBaseline="@id/add_item_button"
+	            android:layout_alignBaseline="@id/add_item_B"
 	            android:layout_alignParentRight="true"
 	            android:layout_alignParentTop="true"
 	            android:background="@null"
@@ -68,7 +68,7 @@
 	    </RelativeLayout>
 	    
 	    <LinearLayout
-	        android:id="@+id/item_container"
+	        android:id="@+id/item_container_LL"
 	        android:layout_height="wrap_content"
 	        android:layout_width="match_parent"
 			android:orientation="vertical"/>
@@ -78,7 +78,7 @@
 	        android:layout_height="wrap_content"
 	        android:paddingTop="20dp" >
 		        <TextView
-			        android:id="@+id/people_title"
+			        android:id="@+id/people_title_TV"
 			        style="@style/TitleText"
 			        android:layout_height="wrap_content"
 			        android:layout_width="match_parent"
@@ -86,7 +86,7 @@
 			        android:paddingTop="10dp"/>
 		    
 			    <View
-			        android:layout_below="@+id/people_title"
+			        android:layout_below="@+id/people_title_TV"
 				    android:layout_width="fill_parent"
 				    android:layout_height="1dp"
 				    android:background="@android:color/darker_gray"/>
