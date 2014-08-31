@@ -26,14 +26,13 @@ import com.kevinpedronan.spendy.VenmoLibrary.VenmoResponse;
 
 public class TransactionActivity extends Activity {
 	//Transaction Name
-	private TextView nameTitleTextView;
-	private EditText transactionNameET;
+	private TextView nameTitle_TV;
+	private EditText transactionName_ET;
 	
 	//Items
-	private TextView itemsTitleTextView;
-	private LinearLayout itemContainer;
-	private ArrayList<ItemLinearLayout> items;
-	private ArrayList<ItemRelativeLayout> itemsR;
+	private TextView itemsTitle_TV;
+	private LinearLayout itemContainer_LL;
+	private ArrayList<ItemRelativeLayout> items_AL;
 	private Button addItem_B;
 	private int itemCounter = 222;
 	
@@ -66,9 +65,9 @@ public class TransactionActivity extends Activity {
 		//Reference TypeFaces
 		refTF();
 		
+		//Build UI components
 		buildInfoSection();
-		//buildItemSection();
-		buildItemRelativeSection();
+		buildItemSection();
 		buildPeopleSection();
 		
 		/*
@@ -91,20 +90,25 @@ public class TransactionActivity extends Activity {
 	}//refTF
 	
 	public void buildInfoSection() {
-		nameTitleTextView = (TextView)findViewById(R.id.name_title);
-		nameTitleTextView.setTypeface(title_TF);
+		nameTitle_TV = (TextView)findViewById(R.id.name_title);
+		nameTitle_TV.setTypeface(title_TF);
 		
-		transactionNameET = (EditText)findViewById(R.id.transaction_name_ET);
+		transactionName_ET = (EditText)findViewById(R.id.transaction_name_ET);
 	}//buildInfoSection
 	
 	public void buildItemSection() {
 		//UI container for section
-		itemContainer = (LinearLayout)findViewById(R.id.item_container);
+		itemContainer_LL = (LinearLayout)findViewById(R.id.item_container);
+		LinearLayout.LayoutParams linearParams = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+		itemContainer_LL.setLayoutParams(linearParams);
 				
+		//ArrayList to hold Items
+		items_AL = new ArrayList<ItemRelativeLayout>();
+		
 		//Title
-		itemsTitleTextView = (TextView)findViewById(R.id.items_title);
-		itemsTitleTextView.setTypeface(title_TF);
-	
+		itemsTitle_TV = (TextView)findViewById(R.id.items_title);
+		itemsTitle_TV.setTypeface(title_TF);
+		
 		//Add item Button
 		addItem_B = (Button)findViewById(R.id.add_item_button);
 		addItem_B.setOnClickListener(new OnClickListener() {
@@ -114,52 +118,17 @@ public class TransactionActivity extends Activity {
 			}
 		});
 		
-		//ArrayList to hold Items
-		items = new ArrayList<ItemLinearLayout>();
-		
+		//Add initial item
 		addItem();
-	}//buildItemSection
+	}
 	
 	public void addItem() {
-		ItemLinearLayout ill = new ItemLinearLayout(this);
-		ill.setId(itemCounter);
-		items.add(ill);
-		itemContainer.addView(ill);
-		itemCounter++;
-	}//addItem
-	
-	public void buildItemRelativeSection() {
-		//UI container for section
-		itemContainer = (LinearLayout)findViewById(R.id.item_container);
-		LinearLayout.LayoutParams linearParams = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
-		itemContainer.setLayoutParams(linearParams);
-				
-		//ArrayList to hold Items
-		itemsR = new ArrayList<ItemRelativeLayout>();
-		
-		//Title
-		itemsTitleTextView = (TextView)findViewById(R.id.items_title);
-		itemsTitleTextView.setTypeface(title_TF);
-		
-		//Add item Button
-		addItem_B = (Button)findViewById(R.id.add_item_button);
-		addItem_B.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				addRelativeItem();
-			}
-		});
-		
-		addRelativeItem();
-	}
-	
-	public void addRelativeItem() {
 		ItemRelativeLayout iRL = new ItemRelativeLayout(this);
 		iRL.setId(itemCounter++);
-		//iRL.itemName.setText(Integer.toString(iRL.getId()));
-		itemsR.add(iRL);
-		itemContainer.addView(iRL);
-	}
+		iRL.itemName.setText(Integer.toString(iRL.getId()));
+		items_AL.add(iRL);
+		itemContainer_LL.addView(iRL);
+	}//addItem
 	
 	public void buildPeopleSection() {
 		peopleTitleTextView = (TextView)findViewById(R.id.people_title);
