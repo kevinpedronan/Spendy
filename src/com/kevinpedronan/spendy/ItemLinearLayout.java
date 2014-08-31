@@ -1,6 +1,7 @@
 package com.kevinpedronan.spendy;
 
 import android.content.Context;
+import android.view.Gravity;
 import android.view.inputmethod.EditorInfo;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -30,6 +31,7 @@ public class ItemLinearLayout extends LinearLayout {
 		itemQty.setHint("quantity");
 		
 		itemPrice.setHint("$");
+		itemPrice.setGravity(Gravity.RIGHT);
 		
 		this.addView(itemName);
 		this.addView(itemQty);

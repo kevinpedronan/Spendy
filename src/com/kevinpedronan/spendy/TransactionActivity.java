@@ -17,6 +17,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout.LayoutParams;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 import android.widget.Toast;
@@ -32,8 +33,9 @@ public class TransactionActivity extends Activity {
 	private TextView itemsTitleTextView;
 	private LinearLayout itemContainer;
 	private ArrayList<ItemLinearLayout> items;
+	private ArrayList<ItemRelativeLayout> itemsR;
 	private Button addItem_B;
-	private int itemCounter = 0;
+	private int itemCounter = 222;
 	
 	//People
 	private TextView peopleTitleTextView;
@@ -65,7 +67,8 @@ public class TransactionActivity extends Activity {
 		refTF();
 		
 		buildInfoSection();
-		buildItemSection();
+		//buildItemSection();
+		buildItemRelativeSection();
 		buildPeopleSection();
 		
 		/*
@@ -124,6 +127,39 @@ public class TransactionActivity extends Activity {
 		itemContainer.addView(ill);
 		itemCounter++;
 	}//addItem
+	
+	public void buildItemRelativeSection() {
+		//UI container for section
+		itemContainer = (LinearLayout)findViewById(R.id.item_container);
+		LinearLayout.LayoutParams linearParams = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
+		itemContainer.setLayoutParams(linearParams);
+				
+		//ArrayList to hold Items
+		itemsR = new ArrayList<ItemRelativeLayout>();
+		
+		//Title
+		itemsTitleTextView = (TextView)findViewById(R.id.items_title);
+		itemsTitleTextView.setTypeface(title_TF);
+		
+		//Add item Button
+		addItem_B = (Button)findViewById(R.id.add_item_button);
+		addItem_B.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				addRelativeItem();
+			}
+		});
+		
+		addRelativeItem();
+	}
+	
+	public void addRelativeItem() {
+		ItemRelativeLayout iRL = new ItemRelativeLayout(this);
+		iRL.setId(itemCounter++);
+		//iRL.itemName.setText(Integer.toString(iRL.getId()));
+		itemsR.add(iRL);
+		itemContainer.addView(iRL);
+	}
 	
 	public void buildPeopleSection() {
 		peopleTitleTextView = (TextView)findViewById(R.id.people_title);
