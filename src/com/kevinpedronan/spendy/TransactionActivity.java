@@ -48,7 +48,7 @@ public class TransactionActivity extends Activity {
 	private Button payButton;
 
 	
-	//Declare Model elements
+	//Model elements
 	private double amount;
 	private int numSplit;
 	private String recipient;
@@ -125,7 +125,7 @@ public class TransactionActivity extends Activity {
 	public void addItem() {
 		ItemRelativeLayout iRL = new ItemRelativeLayout(this);
 		iRL.setId(itemCounter++);
-		iRL.itemName.setText(Integer.toString(iRL.getId()));
+		//iRL.itemName.setText(Integer.toString(iRL.getId()));
 		items_AL.add(iRL);
 		itemContainer_LL.addView(iRL);
 	}//addItem

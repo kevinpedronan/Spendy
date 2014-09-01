@@ -1,134 +1,178 @@
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:gravity="center"
-    android:orientation="vertical" >
+	android:layout_height="wrap_content">
     
-    <LinearLayout
+	<ScrollView 
 	    android:layout_width="match_parent"
 	    android:layout_height="wrap_content"
 	    android:gravity="center"
-	    android:orientation="vertical"
-	    android:padding="10dp">
-	    
-        <RelativeLayout
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:paddingTop="20dp" >
-	        
-	            <TextView
-			        android:id="@+id/name_title_TV"
-			        style="@style/TitleText"
-			        android:layout_width="match_parent"
-			        android:layout_height="wrap_content"
-			        android:text="@string/name_title"/>    
-		    
-			    <View
-			        android:layout_below="@+id/name_title_TV"
-				    android:layout_width="fill_parent"
-				    android:layout_height="1dp"
-				    android:background="@android:color/darker_gray"/>
-        </RelativeLayout>
-	        
-	    <EditText
-	        android:id="@+id/transaction_name_ET"
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:inputType="text"
-	        android:imeOptions="actionGo"
-	        android:paddingTop="10dp"/>
-	    
-	    <RelativeLayout
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content" 
-	        android:paddingTop="20dp">
-	        <TextView
-	            android:id="@+id/items_title_TV"
-	            style="@style/TitleText"
-	            android:layout_width="match_parent"
-	            android:layout_height="wrap_content"
-	            android:layout_alignParentLeft="true"
-	            android:paddingTop="12dp"
-	            android:text="@string/items_title" />
-	        <Button
-	            android:id="@+id/add_item_B"
-	            android:layout_width="wrap_content"
-	            android:layout_height="wrap_content"
-	            android:layout_alignBaseline="@id/add_item_B"
-	            android:layout_alignParentRight="true"
-	            android:layout_alignParentTop="true"
-	            android:background="@null"
-	            android:text="+" />
-	        <View
-	            android:layout_width="fill_parent"
-	            android:layout_height="1dp"
-	            android:layout_alignParentLeft="true"
-	            android:layout_below="@+id/items_title"
-	            android:background="@android:color/darker_gray" />
-	    </RelativeLayout>
+	    android:orientation="vertical" >
 	    
 	    <LinearLayout
-	        android:id="@+id/item_container_LL"
-	        android:layout_height="wrap_content"
-	        android:layout_width="match_parent"
-			android:orientation="vertical"/>
-	    
-	    <RelativeLayout
-	        android:layout_width="match_parent"
-	        android:layout_height="wrap_content"
-	        android:paddingTop="20dp" >
-		        <TextView
-			        android:id="@+id/people_title_TV"
-			        style="@style/TitleText"
-			        android:layout_height="wrap_content"
-			        android:layout_width="match_parent"
-			        android:text="@string/people_title"
-			        android:paddingTop="10dp"/>
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:gravity="center"
+		    android:orientation="vertical"
+		    android:padding="10dp">
 		    
-			    <View
-			        android:layout_below="@+id/people_title_TV"
-				    android:layout_width="fill_parent"
-				    android:layout_height="1dp"
-				    android:background="@android:color/darker_gray"/>
-	    </RelativeLayout>
+	        <RelativeLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:paddingTop="20dp" >
+		        
+		            <TextView
+				        android:id="@+id/name_title_TV"
+				        style="@style/TitleText"
+				        android:layout_width="match_parent"
+				        android:layout_height="wrap_content"
+				        android:text="@string/name_title"/>    
+			    
+				    <View
+				        android:layout_below="@+id/name_title_TV"
+					    android:layout_width="fill_parent"
+					    android:layout_height="1dp"
+					    android:background="@android:color/darker_gray"/>
+	        </RelativeLayout>
+		        
+		    <EditText
+		        android:id="@+id/transaction_name_ET"
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:inputType="text"
+		        android:imeOptions="actionGo"
+		        android:paddingTop="10dp"/>
+		    
+		    <RelativeLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content" 
+		        android:paddingTop="20dp">
+		        <TextView
+		            android:id="@+id/items_title_TV"
+		            style="@style/TitleText"
+		            android:layout_width="match_parent"
+		            android:layout_height="wrap_content"
+		            android:layout_alignParentLeft="true"
+		            android:paddingTop="12dp"
+		            android:text="@string/items_title" />
+		        <Button
+		            android:id="@+id/add_item_B"
+		            android:layout_width="wrap_content"
+		            android:layout_height="wrap_content"
+		            android:layout_alignBaseline="@id/add_item_B"
+		            android:layout_alignParentRight="true"
+		            android:layout_alignParentTop="true"
+		            android:background="@null"
+		            android:text="+" />
+	
+		        <View
+		            android:layout_width="fill_parent"
+		            android:layout_height="1dp"
+		            android:layout_alignBottom="@+id/items_title_TV"
+		            android:layout_alignParentLeft="true"
+		            android:background="@android:color/darker_gray" />
+	
+		    </RelativeLayout>
+		    
+		    <LinearLayout
+		        android:id="@+id/item_container_LL"
+		        android:layout_height="wrap_content"
+		        android:layout_width="match_parent"
+				android:orientation="vertical"/>
+		    
+		    <RelativeLayout
+		        android:layout_width="match_parent"
+		        android:layout_height="wrap_content"
+		        android:paddingTop="20dp" >
+			        <TextView
+				        android:id="@+id/people_title_TV"
+				        style="@style/TitleText"
+				        android:layout_height="wrap_content"
+				        android:layout_width="match_parent"
+				        android:text="@string/people_title"
+				        android:paddingTop="10dp"/>
+			    
+				    <View
+				        android:layout_below="@+id/people_title_TV"
+					    android:layout_width="fill_parent"
+					    android:layout_height="1dp"
+					    android:background="@android:color/darker_gray"/>
+		    </RelativeLayout>
+		    
+		    <EditText
+		        android:id="@+id/amount_edit_text"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:padding="24dp"
+		        android:hint="@string/amount_hint"
+		        android:inputType="numberDecimal"/>
+		  	
+		    <EditText
+		        android:id="@+id/num_split_edit_text"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:padding="24dp"
+		        android:hint="@string/num_split_hint"
+		        android:inputType="number"/>
+		    
+		    <EditText
+		        android:id="@+id/venmo_login"	
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:padding="24dp" 
+		        android:hint="@string/venmo_login_options"
+		        android:inputType="text"
+		        android:imeOptions="actionGo"/>
+		    
+			<TextView
+		        android:id="@+id/result_text_view"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:padding="24dp"
+		        android:textSize="32sp"/>
+		    
+		    <Button
+		        android:id="@+id/pay_button"
+		        android:layout_width="wrap_content"
+		        android:layout_height="wrap_content"
+		        android:padding="24dp"
+		    	android:text="@string/pay"/>
+	    </LinearLayout>
+	</ScrollView>
+	
+	<RelativeLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="60dp"
+	    android:layout_alignParentBottom="true"
+	    android:background="#33B5E5">
 	    
-	    <EditText
-	        android:id="@+id/amount_edit_text"
+	    <TextView
+	        android:id="@+id/static_price_TV"
+	        style="@style/StaticPrice"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:padding="24dp"
-	        android:hint="@string/amount_hint"
-	        android:inputType="numberDecimal"/>
-	  	
-	    <EditText
-	        android:id="@+id/num_split_edit_text"
+	        android:layout_centerVertical="true"
+	        android:padding="6dp"
+	        android:text="$12.74" />
+	    <!--
+	    <TextView
+	        android:id="@+id/static_tip_TV"
+	        android:layout_centerVertical="true"
+	        android:layout_toRightOf="@+id/static_price_TV"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:padding="24dp"
-	        android:hint="@string/num_split_hint"
-	        android:inputType="number"/>
+	        android:padding="6dp"
+	        android:text="$1.72 tip"
+	        style="@style/StaticDetails"/>
 	    
-	    <EditText
-	        android:id="@+id/venmo_login"	
+	    <TextView
+	        android:layout_centerVertical="true"
+	        android:layout_toRightOf="@+id/static_tip_TV"
 	        android:layout_width="wrap_content"
 	        android:layout_height="wrap_content"
-	        android:padding="24dp" 
-	        android:hint="@string/venmo_login_options"
-	        android:inputType="text"
-	        android:imeOptions="actionGo"/>
-	    
-		<TextView
-	        android:id="@+id/result_text_view"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:padding="24dp"
-	        android:textSize="32sp"/>
-	    
-	    <Button
-	        android:id="@+id/pay_button"
-	        android:layout_width="wrap_content"
-	        android:layout_height="wrap_content"
-	        android:padding="24dp"
-	    	android:text="@string/pay"/>
-    </LinearLayout>
-</ScrollView>
+	        android:padding="6dp"
+	        android:text="$1.56 tax"
+	        style="@style/StaticDetails"/> -->
+	</RelativeLayout>
+</RelativeLayout>

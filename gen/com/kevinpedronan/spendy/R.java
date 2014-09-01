@@ -8,6 +8,9 @@
 package com.kevinpedronan.spendy;
 
 public final class R {
+    public static final class array {
+        public static final int quantities=0x7f060000;
+    }
     public static final class attr {
     }
     public static final class dimen {
@@ -25,21 +28,21 @@ public final class R {
         public static final int spendy_launcher=0x7f020001;
     }
     public static final class id {
-        public static final int action_settings=0x7f08000e;
-        public static final int add_item_B=0x7f080004;
-        public static final int amount_edit_text=0x7f080008;
-        public static final int item_container_LL=0x7f080006;
-        public static final int items_title=0x7f080005;
-        public static final int items_title_TV=0x7f080003;
-        public static final int name_title_TV=0x7f080001;
-        public static final int new_transaction_button=0x7f080000;
-        public static final int num_split_edit_text=0x7f080009;
-        public static final int pay_button=0x7f08000c;
-        public static final int people_title_TV=0x7f080007;
-        public static final int result_text_view=0x7f08000b;
-        public static final int transaction_name_ET=0x7f080002;
-        public static final int venmo_login=0x7f08000a;
-        public static final int venmo_wv=0x7f08000d;
+        public static final int action_settings=0x7f09000e;
+        public static final int add_item_B=0x7f090004;
+        public static final int amount_edit_text=0x7f090007;
+        public static final int item_container_LL=0x7f090005;
+        public static final int items_title_TV=0x7f090003;
+        public static final int name_title_TV=0x7f090001;
+        public static final int new_transaction_button=0x7f090000;
+        public static final int num_split_edit_text=0x7f090008;
+        public static final int pay_button=0x7f09000b;
+        public static final int people_title_TV=0x7f090006;
+        public static final int result_text_view=0x7f09000a;
+        public static final int static_price_TV=0x7f09000c;
+        public static final int transaction_name_ET=0x7f090002;
+        public static final int venmo_login=0x7f090009;
+        public static final int venmo_wv=0x7f09000d;
     }
     public static final class layout {
         public static final int activity_spendy=0x7f030000;
@@ -47,8 +50,8 @@ public final class R {
         public static final int venmo_webview=0x7f030002;
     }
     public static final class menu {
-        public static final int spendy=0x7f070000;
-        public static final int transaction=0x7f070001;
+        public static final int spendy=0x7f080000;
+        public static final int transaction=0x7f080001;
     }
     public static final class string {
         public static final int action_settings=0x7f050002;
@@ -91,16 +94,16 @@ public final class R {
     
  API 14 theme customizations can go here. 
          */
-        public static final int AppBaseTheme=0x7f060000;
+        public static final int AppBaseTheme=0x7f070000;
         /**  Application theme. 
  All customizations that are NOT specific to a particular API-level can go here. 
          */
-        public static final int AppTheme=0x7f060001;
-        public static final int SpendyActionBar=0x7f060003;
-        public static final int SpendyActionBarText=0x7f060004;
-        public static final int SpendyTheme=0x7f060002;
-        /**  Title text 
-         */
-        public static final int TitleText=0x7f060005;
+        public static final int AppTheme=0x7f070001;
+        public static final int SpendyActionBar=0x7f070003;
+        public static final int SpendyActionBarText=0x7f070004;
+        public static final int SpendyTheme=0x7f070002;
+        public static final int StaticDetails=0x7f070007;
+        public static final int StaticPrice=0x7f070006;
+        public static final int TitleText=0x7f070005;
     }
 }
