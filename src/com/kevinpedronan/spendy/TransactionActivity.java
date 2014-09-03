@@ -47,12 +47,12 @@ public class TransactionActivity extends Activity {
 	private TextView resultTextView;
 	private Button payButton;
 
-	
 	//Model elements
+	private Transaction transaction;
+	
 	private double amount;
 	private int numSplit;
 	private String recipient;
-	private Transaction transaction;
 	private boolean validAmount = false;
 	
 	int idStart = 0;
@@ -97,6 +97,8 @@ public class TransactionActivity extends Activity {
 	}//buildInfoSection
 	
 	public void buildItemSection() {
+		transaction = new Transaction();
+		
 		//UI container for section
 		itemContainer_LL = (LinearLayout)findViewById(R.id.item_container_LL);
 		LinearLayout.LayoutParams linearParams = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
@@ -125,10 +127,48 @@ public class TransactionActivity extends Activity {
 	public void addItem() {
 		ItemRelativeLayout iRL = new ItemRelativeLayout(this);
 		iRL.setId(itemCounter++);
+		//Debug itemCounter
 		//iRL.itemName.setText(Integer.toString(iRL.getId()));
+		
 		items_AL.add(iRL);
 		itemContainer_LL.addView(iRL);
 	}//addItem
+	
+	//TODO: Create listener for for focus is off of price to update transaction figures
+	
+	public void parsePrice(TextView v) {
+		StringBuilder stringBuilderAmount = new StringBuilder(v.getText().toString());
+		
+		//Ensure amount doesn't not have '$'
+		if(stringBuilderAmount.indexOf("$") != -1) {
+			stringBuilderAmount.deleteCharAt(0);
+		}//if
+		
+		//Ensure amount is zeroed from previous entries
+		//amount = 0.0;
+		validAmount = false;
+		
+		//FIXED cannot throw more than one exception
+		while(!validAmount) {
+			try {
+				Double.parseDouble(stringBuilderAmount.toString());
+				validAmount = true;
+			}
+			catch (NumberFormatException e) {
+				Log.e("parseAmount(): ", "NumberFormatException thrown");
+				v.setText("");
+				Toast.makeText(TransactionActivity.this, R.string.invalid_amount, Toast.LENGTH_SHORT).show();
+				return;
+			}
+		}//while
+		
+		amount = Double.parseDouble(stringBuilderAmount.toString());
+		
+		//TODO: move to Transaction class
+		//TODO: find a more efficient way of doing this
+		
+		return;
+	}
 	
 	public void buildPeopleSection() {
 		peopleTitleTextView = (TextView)findViewById(R.id.people_title_TV);
@@ -258,7 +298,6 @@ public class TransactionActivity extends Activity {
 		}//while
 		
 		amount = Double.parseDouble(stringBuilderAmount.toString());
-		transaction = new Transaction(amount);
 		
 		//TODO: move to Transaction class
 		//TODO: find a more efficient way of doing this

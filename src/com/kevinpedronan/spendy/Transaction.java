@@ -4,16 +4,23 @@ import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
 public class Transaction {
+	private String name;
 	private double amount;
 	private int numSplit;
 	private String sender;
 	private String recipient;
+	//TODO: HashMap<Item> of Items?
+	
+	Transaction() {
+		
+	}//empty constructor
 	
 	Transaction(double amount) {
 		this.amount = amount;
 	}//double constructor
 	
-	Transaction(double amount, int numSplit) {
+	Transaction(String name, double amount, int numSplit) {
+		this.name = name;
 		this.amount = amount;
 		this.numSplit = numSplit;
 	}//double, int constructor
