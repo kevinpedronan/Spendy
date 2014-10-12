@@ -32,7 +32,7 @@ public class TransactionActivity extends Activity {
 	//Items
 	private TextView itemsTitle_TV;
 	private LinearLayout itemContainer_LL;
-	private ArrayList<ItemRelativeLayout> items_AL;
+	private ArrayList<Item> items_AL;
 	private Button addItem_B;
 	private int itemCounter = 222;
 	
@@ -80,39 +80,45 @@ public class TransactionActivity extends Activity {
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
+		
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.transaction, menu);
 		return true;
 	}//onCreateOptionsMenu
 	
-	//reference typeface
+	//Reference the Roboto Medium typeface to be used for the activity
 	public void refTF() {
 		title_TF = Typeface.createFromAsset(getAssets(), "Roboto/Roboto-Medium.ttf");
 	}//refTF
 	
 	public void buildInfoSection() {
+		
+		//Find the "Name of Transaction" title and set the typeface
 		nameTitle_TV = (TextView)findViewById(R.id.name_title_TV);
 		nameTitle_TV.setTypeface(title_TF);
 		
+		//Find the transaction name field
 		transactionName_ET = (EditText)findViewById(R.id.transaction_name_ET);
 	}//buildInfoSection
 	
 	public void buildItemSection() {
 		transaction = new Transaction();
 		
-		//UI container for section
+		//Container for section, holds all the Items 
 		itemContainer_LL = (LinearLayout)findViewById(R.id.item_container_LL);
+		
+		//Define and apply simple match parent linear layout for the container
 		LinearLayout.LayoutParams linearParams = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
 		itemContainer_LL.setLayoutParams(linearParams);
 				
-		//ArrayList to hold Items
-		items_AL = new ArrayList<ItemRelativeLayout>();
+		//ArrayList to keep track of Items
+		items_AL = new ArrayList<Item>();
 		
-		//Title
+		//Find the "Items" title and set the typeface
 		itemsTitle_TV = (TextView)findViewById(R.id.items_title_TV);
 		itemsTitle_TV.setTypeface(title_TF);
 		
-		//Add item Button
+		//Button that adds new Items, (+ button)
 		addItem_B = (Button)findViewById(R.id.add_item_B);
 		addItem_B.setOnClickListener(new OnClickListener() {
 			@Override
@@ -121,19 +127,28 @@ public class TransactionActivity extends Activity {
 			}
 		});
 		
-		//Add initial item
+		//Add the initial item
 		addItem();
-	}
+	}//buildItemSection
 	
 	public void addItem() {
-		ItemRelativeLayout iRL = new ItemRelativeLayout(this);
-		iRL.setId(itemCounter++);
+		
+		//Create the new Item and set its ID
+		Item item = new Item(this);
+		item.setId(itemCounter++);
+		
 		//Debug itemCounter
 		//iRL.itemName.setText(Integer.toString(iRL.getId()));
 		
-		items_AL.add(iRL);
-		itemContainer_LL.addView(iRL);
+		//Add the Item to the ArrayList and the container
+		items_AL.add(item);
+		itemContainer_LL.addView(item);
 	}//addItem
+	
+	public void buildPeopleSection() {
+		peopleTitleTextView = (TextView)findViewById(R.id.people_title_TV);
+		peopleTitleTextView.setTypeface(title_TF);
+	}//buildPeopleSection
 	
 	//TODO: Create listener for for focus is off of price to update transaction figures
 	
@@ -171,10 +186,6 @@ public class TransactionActivity extends Activity {
 		return;
 	}
 	
-	public void buildPeopleSection() {
-		peopleTitleTextView = (TextView)findViewById(R.id.people_title_TV);
-		peopleTitleTextView.setTypeface(title_TF);
-	}//buildPeopleSection
 	/*
 	public void buildAmountEditText() {
 		//Find XML element
