@@ -19,6 +19,11 @@ public class Transaction {
 		this.amount = amount;
 	}//double constructor
 	
+	Transaction(double amount, int numSplit) {
+		this.amount = amount;
+		this.numSplit = numSplit;
+	}//double, int constructor
+	
 	Transaction(String name, double amount, int numSplit) {
 		this.name = name;
 		this.amount = amount;

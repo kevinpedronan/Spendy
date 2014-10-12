@@ -27,7 +27,7 @@ public class ItemRelativeLayout extends RelativeLayout {
 		resetRelativeParams();
 		buildName(context);
 		buildPrice(context);
-		//buildQty(context);
+		//Outdated buildQty(context);
 		buildQtySpinner(context);
 	}//constructor
 	

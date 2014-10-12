@@ -85,6 +85,7 @@ public class TransactionActivity extends Activity {
 		return true;
 	}//onCreateOptionsMenu
 	
+	//reference typeface
 	public void refTF() {
 		title_TF = Typeface.createFromAsset(getAssets(), "Roboto/Roboto-Medium.ttf");
 	}//refTF
@@ -174,7 +175,7 @@ public class TransactionActivity extends Activity {
 		peopleTitleTextView = (TextView)findViewById(R.id.people_title_TV);
 		peopleTitleTextView.setTypeface(title_TF);
 	}//buildPeopleSection
-	
+	/*
 	public void buildAmountEditText() {
 		//Find XML element
 		amountEditText = (EditText)findViewById(R.id.amount_edit_text);
@@ -214,9 +215,9 @@ public class TransactionActivity extends Activity {
 				return handled;
 			}//onEditorAction
 		});
-		/*
 		
-		*/
+		
+		
 	}//buildNumSplitEditText
 	
 	public void buildVenmoLoginEditText() {
@@ -239,6 +240,7 @@ public class TransactionActivity extends Activity {
 					}//catch NumberFormatException
 					
 					transaction = new Transaction(amount, numSplit);
+					
 					//Hide keyboard
 					InputMethodManager imm = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
 					imm.hideSoftInputFromWindow(resultTextView.getApplicationWindowToken(), 0);
@@ -269,7 +271,7 @@ public class TransactionActivity extends Activity {
 			}//onClick
 		});
 	}//buildPayButton
-	
+	*/
 	public void parseAmount() {
 		StringBuilder stringBuilderAmount;
 		stringBuilderAmount = new StringBuilder(amountEditText.getText().toString());
