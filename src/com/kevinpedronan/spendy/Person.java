@@ -7,19 +7,22 @@ import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
-public class PersonRelativeLayout extends RelativeLayout {
+public class Person extends RelativeLayout {
+	
+	//Public so Activity can attach listeners and handle result
 	public EditText personName;
 	
-	public PersonRelativeLayout(Context context) {
+	public Person(Context context) {
 		super(context);
 		
+		Log.e("Spendy", "Person constructor");
 		buildParentLinearParams();
 		buildName(context);
 	}//constructor
 	
 	//Defines the LinearLayout parameters for the parent that will contain this custom Layout
 	private void buildParentLinearParams() {
-		Log.e("Spendy", "ItemRelativeLayout constructor");
+		
 		//Set LinearLayout parameters for parent element
 		LinearLayout.LayoutParams linearParams = new LinearLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.MATCH_PARENT);
 		this.setLayoutParams(linearParams);
@@ -43,5 +46,11 @@ public class PersonRelativeLayout extends RelativeLayout {
 		
 		//Define the input type to be simple text
 		personName.setInputType(EditorInfo.TYPE_CLASS_TEXT);
+		
+		//Set the field hint
+		personName.setHint("person name");
+		
+		//Add it to the Layout
+		this.addView(personName);
 	}
 }//PersonRelativeLayout

@@ -28,16 +28,18 @@ public final class R {
         public static final int spendy_launcher=0x7f020001;
     }
     public static final class id {
-        public static final int action_settings=0x7f090009;
+        public static final int action_settings=0x7f09000b;
         public static final int add_item_B=0x7f090004;
+        public static final int add_person_B=0x7f090007;
         public static final int item_container_LL=0x7f090005;
         public static final int items_title_TV=0x7f090003;
         public static final int name_title_TV=0x7f090001;
         public static final int new_transaction_button=0x7f090000;
         public static final int people_title_TV=0x7f090006;
-        public static final int static_price_TV=0x7f090007;
+        public static final int person_container_LL=0x7f090008;
+        public static final int static_price_TV=0x7f090009;
         public static final int transaction_name_ET=0x7f090002;
-        public static final int venmo_wv=0x7f090008;
+        public static final int venmo_wv=0x7f09000a;
     }
     public static final class layout {
         public static final int activity_spendy=0x7f030000;
